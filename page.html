@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pattern Generator Addon for Blender</title>
+    <style>
+        /* ALL CSS IN ONE PLACE */
+        body {
+            font-family: 'Roboto',Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            background-color: #303841; /* Dark Background */
+            color: #e3f2fd; /* Light text for contrast */
+            padding: 20px;
+            text-align: center;
+            font-size: large;
+        }
+
+        h1,
+        h2,
+        h3 {
+            margin-top: 1.5em;
+            margin-bottom: 0.5em;
+            color: #81d4fa; /* Lighter blue for headings */
+            font-weight: 700;
+            text-align: center;
+        }
+
+        /*  Image Title Styles */
+        .image-title {
+            text-align: center;
+            /* Center the image */
+            margin-bottom: 20px;
+            /* Space below the image */
+            /* padding: 10px; Add some padding around image title area for shadow to be visible */
+            background-color: rgba(255, 255, 255, 0.05); /* Optional: Slightly darker background for image area */
+            border-radius: 10px;
+        }
+
+        .image-title img {
+            max-width: 100%;
+            /* Ensure it doesn't overflow its container */
+            height: auto;
+            /* Maintain aspect ratio */
+            display: block;
+            /* Remove extra space below inline image */
+            border-radius: 10px;
+            /* Optional: Rounded corners */
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6); /* Shadow for images */
+        }
+        .image-title img:hover {
+            box-shadow: 0 4px 12px rgba(30, 136, 229, 0.5);
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            background-color: #303841; /* Same as body background */
+            padding: 30px;
+            border-radius: 15px;
+            border: none; /* Explicitly remove any border that might be default */
+            color: #e3f2fd; /* Ensure text color is still light for contrast */
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            margin-bottom: 1em;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #071f33;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            margin-right: 10px;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+            border: none;
+            font-weight: 600;
+        }
+
+        .button:hover {
+            background-color: #1565c0;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(30, 136, 229, 0.4);
+        }
+
+        .pricing-table {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 2.5em;
+            flex-wrap: wrap;
+        }
+
+        .pricing-option {
+            border: 2px solid #0a263d;
+            padding: 25px;
+            margin: 10px;
+            text-align: center;
+            flex: 1 1 300px;
+            max-width: 800px;
+            background-color: #0e1e2b; /* Keep pricing option background for visual separation within pricing table */
+            border-radius: 12px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .pricing-option:hover {
+            transform: scale(1.03);
+            box-shadow: 0 4px 8px rgba(30, 136, 229, 0.4);
+        }
+
+        .pricing-option ul {
+            list-style-position: inside;
+            padding-left: 0;
+            list-style: none;
+
+        }
+        .github-link {
+            color: #64ffda; /* A brighter, more saturated blue/cyan for contrast */
+            text-decoration: none; /* Remove underline */
+            font-weight: 600; /* Make it a bit bolder */
+        }
+
+        .pricing-option ul li {
+            margin-bottom: 0.5em;
+        }
+
+
+        .call-to-action {
+            margin-top: 3em;
+            text-align: center;
+        }
+
+        .highlight {
+            background-color: #fff;
+            color: #1565c0;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+            margin-bottom: 2em;
+        }
+
+        .image-gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            display: block;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); /* Shadow for gallery images */
+            transition: box-shadow 0.3s ease;
+        }
+
+        .image-gallery img:hover {
+            box-shadow: 0 4px 12px rgba(30, 136, 229, 0.5);
+        }
+
+        /*  REMOVE EXTERNAL LINKS - BlenderMarket may not allow these */
+        /*  .note-video-clip {  Remove or replace with embedded video if possible } */
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Image Title -->
+        <div class="image-title">
+            <img src="https://i.imgur.com/x0B5011.jpeg" alt="Pattern Generator for Blender">
+        </div>
+        <div class="image-title">
+            <img src="https://i.imgur.com/rhZLq1E.gif" alt="Pattern Generator for Blender">
+        </div>
+        <div class="image-title">
+            <img src="https://i.imgur.com/dYzYKzc.gif" alt="Pattern Generator for Blender">
+        </div>
+        <div class="image-title">
+            <img src="https://i.imgur.com/KmJbhKm.jpeg" alt="Pattern Generator for Blender">
+        </div>
+        <div class="image-title">
+            <img src="https://i.imgur.com/QWiiwhk.jpeg" alt="Pattern Generator for Blender">
+        </div>
+
+
+        <p>Generate logos, wallpapers, signs or anything you want with this powerful Blender Geometry Nodes addon.
+            Create stunning circular planar patterns and animated swirling tube structures.</p>
+
+        <!-- Image Gallery -->
+        <div class="image-gallery">
+            <img src="https://i.imgur.com/D48oEkp.jpeg" alt="Pattern Example 1">
+            <img src="https://i.imgur.com/w2RCaqx.jpeg" alt="Pattern Example 2">
+            <img src="https://i.imgur.com/TIBOTMK.gif" alt="Pattern Example 3">
+            <!-- Add more images as needed -->
+            <img src="https://i.imgur.com/jb5Juuu.gif" alt="Pattern Example 4">
+            <img src="https://i.imgur.com/z4FeF6H.gif" alt="Pattern Example 5">
+            <img src="https://i.imgur.com/KtL8uOy.jpeg" alt="Pattern Example 6">
+            <!-- Add more as needed -->
+        </div>
+
+        <!-- IFRAME (Less Likely to be Allowed, check BlenderMarket rules)
+        <div class="video-container">
+            <iframe frameborder="0" src="//www.youtube.com/embed/CBPm4HEW2hw" width="640" height="360"></iframe>
+        </div>
+        <div class="video-container">
+           <iframe frameborder="0" src="//www.youtube.com/embed/u9ilS8bp8d4" width="640" height="360"></iframe>
+        </div>
+       -->
+
+        <p>This Blender addon utilizes the power of Geometry Nodes to generate beautiful and intricate circular planar
+            patterns. Create stunning backgrounds, textures, or props for wall or neon signs and designs with ease.</p>
+
+        <h2>Introduction:</h2>
+        <p>This Blender Geometry Nodes asset allows you to create intricate, animated swirling tube structures with
+            ease. Customize the number, shape, curvature, and animation of the tubes to generate unique and visually
+            striking elements for your projects. The intuitive interface and robust parameter controls offer
+            unparalleled flexibility for artists of all skill levels.</p>
+
+        <div class="pricing-table">
+            <div class="pricing-option">
+                <h3>Open Source (Basic)</h3>
+                <ul>
+                    <li>Core Geometry Nodes setup</li>
+                    <li>Basic tube generation</li>
+                    <li>Curve refinement</li>
+                </ul>
+                <!-- Replace with BlenderMarket Link if allowed, otherwise use plain text -->
+                <p>Available for free on <a href="https://github.com/vaishnn/Open-Pattern-Generator" class="github-link"> Github</a></p>
+            </div>
+        </div>
+
+        <div class="call-to-action">
+            <h2>Ready to Create Stunning Patterns?</h2>
+            <p>Download the free and open source version and start creating today!</p>
+        <!-- Documentation and Support sections if you can't use external links -->
+
+    </div>
+</body>
+
+</html>
